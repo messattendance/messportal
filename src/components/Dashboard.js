@@ -13,7 +13,7 @@ const Dashboard = () => {
             <Link to="/leavemeal"><Button variant='info' className='my-3 py-3  btns'>Leave The Meal</Button></Link>
             <Link to="/attendance"><Button variant='info' className='my-3 py-3  btns'>Attendance</Button></Link>
             <Link to="/feedback"><Button variant='info' className='my-3 py-3  btns'>Feedback</Button></Link>
-            <Link to="/"><Button variant='info' className='my-3 py-3  btns'>Complaints</Button></Link>
+            <Link to="/complaints"><Button variant='info' className='my-3 py-3  btns'>Complaints</Button></Link>
           </div>
       </Container>
     </div>

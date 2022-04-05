@@ -12,7 +12,7 @@ const AttendanceDetails = () => {
                 <Button variant='info' className='py-3 my-3'>Attendance</Button>
                 <div className="attendance">
                     <h5 className='px-3'>Total Count : <span className='decor'>58</span></h5>
-                    <h5 className='px-3'>Breakfast</h5>
+                    <h5  className='px-3 text-danger'>Breakfast</h5>
                     <h5 className='px-3'>Date : 02/04/2022</h5>
                 </div>
                 <Table responsive="lg">

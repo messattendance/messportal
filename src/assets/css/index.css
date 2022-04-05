@@ -10,7 +10,7 @@
 }
 
 .align , .menubtn {
-    margin-top: 60px;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     padding: 15px;
@@ -18,7 +18,7 @@
 }
 
 .link{
-    text-decoration: none;
+    text-decoration: none   ;
     color: white;
 }
 
@@ -78,4 +78,20 @@ p{
     align-items: center;
     margin: 15px;
     padding: 15px;
+    flex-direction: row;
+
+}
+
+.head{
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: center;
+    color: blue;
+}
+
+.feedback{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    margin:10px;
 }
