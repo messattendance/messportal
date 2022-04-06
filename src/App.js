@@ -7,7 +7,9 @@ import AttendanceDetails from './components/AttendanceDetails';
 import Feedback from './components/Feedback';
 import Complaints from './components/Complaints';
 
+
 function App() {
+  
   return (
     <div className="App">
       <Router>
