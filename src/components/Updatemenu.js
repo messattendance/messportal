@@ -22,7 +22,7 @@ const Updatemenu = () => {
         let dnr = dinner.current.value;
 
         let m= await db.collection('menu').doc('avs7rYGkSNUXRCH6latE').set({'breakfast':bf ,'dinner' : dnr ,'lunch':lch, 'snacks' : sncks }).then(result =>{
-            history.push('/');
+            history('/');
         }).catch(err =>{
             console.log(err);
         })

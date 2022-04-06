@@ -8,15 +8,30 @@ import { useEffect , useState } from 'react';
 
 const Attendance = () => {
     const dat= useRef('');
-  const [count , setCount] = useState('');
+  const [count1 , setCount1] = useState('');
+  const [count2 , setCount2] = useState('');
+  const [count3 , setCount3] = useState('');
 
+  useEffect(() => {
+    let dt=dat.current.value;
+        const Breakfast = firebase.database().ref("31-03-2022 Lunch");
+        const Lunch = firebase.database().ref("31-03-2022 Lunch");
+        const Dinner = firebase.database().ref("31-03-2022 Lunch");
+
+        Breakfast.on('value', (snapshot) => {
+          setCount1(snapshot.numChildren());
+        })
+  }, [])
+  
 
  function View(){
     let dt=dat.current.value;
-        const fetchRef = firebase.database().ref("31-03-2022 Lunch");
-        console.log(dt);
-        fetchRef.on('value', (snapshot) => {
-          setCount(snapshot.numChildren());
+        const Breakfast = firebase.database().ref("31-03-2022 Lunch");
+        const Lunch = firebase.database().ref("31-03-2022 Lunch");
+        const Dinner = firebase.database().ref("31-03-2022 Lunch");
+
+        Breakfast.on('value', (snapshot) => {
+          setCount1(snapshot.numChildren());
         })
       
   }
@@ -35,14 +50,13 @@ const Attendance = () => {
                         <Col sm="40">
                         <Form.Control type="date" name="expiredDate" ref={dat} placeholder="Password" />
                         </Col>
-                        <Button variant="info" className="my-3" onClick={View}>Go</Button>
                     </Form.Group>
                 </Form>
                 <div className='flexboxes'>
                     <div className='innerbox'>
                         <div className='innerflex'>
                             <h5>Breakfast</h5>
-                            <p>Attended : { count }</p>
+                            <p>Attended : { count1 }</p>
                             <Button variant='info' className="my-3 py-3">View Details</Button>
                         </div>
                     </div>
