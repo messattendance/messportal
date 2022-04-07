@@ -13,28 +13,25 @@ const Attendance = () => {
   const [count3 , setCount3] = useState('');
 
   useEffect(() => {
-    let dt=dat.current.value;
-        const Breakfast = firebase.database().ref("31-03-2022 Lunch");
+        const Breakfast = firebase.database().ref("31-03-2022 Breakfast");
         const Lunch = firebase.database().ref("31-03-2022 Lunch");
-        const Dinner = firebase.database().ref("31-03-2022 Lunch");
+        const Dinner = firebase.database().ref("31-03-2022 Dinner");
 
         Breakfast.on('value', (snapshot) => {
           setCount1(snapshot.numChildren());
         })
+
+        Lunch.on('value', (snapshot) => {
+            setCount2(snapshot.numChildren());
+          })
+
+          Dinner.on('value', (snapshot) => {
+            setCount3(snapshot.numChildren());
+          })
   }, [])
   
 
- function View(){
-    let dt=dat.current.value;
-        const Breakfast = firebase.database().ref("31-03-2022 Lunch");
-        const Lunch = firebase.database().ref("31-03-2022 Lunch");
-        const Dinner = firebase.database().ref("31-03-2022 Lunch");
 
-        Breakfast.on('value', (snapshot) => {
-          setCount1(snapshot.numChildren());
-        })
-      
-  }
  
 
   return (
@@ -57,21 +54,21 @@ const Attendance = () => {
                         <div className='innerflex'>
                             <h5>Breakfast</h5>
                             <p>Attended : { count1 }</p>
-                            <Button variant='info' className="my-3 py-3">View Details</Button>
+                            <Link to='/attendancedetails' ><Button variant='info' className="my-3 py-3">View Details</Button></Link>
                         </div>
                     </div>
                     <div className='innerbox'>
                         <div className='innerflex'>
                             <h5>Lunch</h5>
-                            <p>Attended : 840</p>
-                            <Link to='/attendancedetails'><Button variant='info' className="my-3 py-3">View Details</Button></Link>
+                            <p>Attended : { count2 }</p>
+                            <Link to='/attendancedetails' ><Button variant='info' className="my-3 py-3">View Details</Button></Link>
                         </div>
                     </div>
                     <div className='innerbox'>
                         <div className='innerflex'>
                             <h5>Dinner</h5>
-                            <p>Attended : 840</p>
-                            <Button variant='info' className="my-3 py-3">View Details</Button>
+                            <p>Attended : { count3 }</p>
+                            <Link to='/attendancedetails'><Button variant='info' className="my-3 py-3">View Details</Button></Link>
                         </div>
                     </div>
                 </div>

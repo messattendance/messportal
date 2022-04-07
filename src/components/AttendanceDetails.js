@@ -1,4 +1,4 @@
-import React from 'react'
+import React   from 'react'
 import { Container ,Button , Table} from 'react-bootstrap'
 import '../assets/css/index.css'
 import Nav from './Nav';
@@ -6,6 +6,7 @@ import firebase from 'firebase'
 import { useEffect, useState } from 'react'
 
 const AttendanceDetails = () => {
+
         const [count , setCount] = useState('');
         const [obj, setObject] = useState('');
         useEffect(() => {
@@ -18,7 +19,8 @@ const AttendanceDetails = () => {
               })
               
             //console.log(snapshot.val());
-          })
+          });
+          
         },[])
   return (
     <div>
