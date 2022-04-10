@@ -6,6 +6,7 @@ import Attendance from './components/Attendance';
 import AttendanceDetails from './components/AttendanceDetails';
 import Feedback from './components/Feedback';
 import Complaints from './components/Complaints';
+import Chart from './components/Chart';
 
 
 function App() {
@@ -21,6 +22,8 @@ function App() {
           <Route path='/attendancedetails' element={<AttendanceDetails/>}/>
           <Route path='/feedback' element={<Feedback/>}/>
           <Route path='/complaints' element={<Complaints/>}/>
+          
+          <Route path='/charts' element={<Chart/>}/>
         </Routes>
       </Router>
     </div>

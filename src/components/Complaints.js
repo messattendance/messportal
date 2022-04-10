@@ -1,7 +1,12 @@
 import React, { useState , useEffect } from 'react'
 import Nav from './Nav'
 import { Button, Container,Table } from 'react-bootstrap'
+import ReactTooltip from 'react-tooltip';
 import firebase from 'firebase'
+import Chart from 'react-apexcharts'
+
+
+
 const Complaints = () => {
     const [count, setCount] = useState('');
     const [messages, setMessages] = useState('');
@@ -18,9 +23,23 @@ const Complaints = () => {
         );
       });
     }, [count])
+
+    async function handlesolve(index){
+      await firebase.firestore().collection('complaints').doc(index).update({status : 'solved'}).then(value => {
+        console.log(value);
+      }).catch(err => {
+        alert("not updated");
+      })
+    }
+
+    
+  
+
+
   return (
     <div>
         <Nav/>
+        <ReactTooltip />
         <Container>
         <div className='align'>
         <Button variant='info' className='py-3 my-3'>Complaints</Button>
@@ -28,6 +47,9 @@ const Complaints = () => {
             <h5>Total Complaints : <span className='decor'>{count}</span></h5>
         </div>
         <div>
+        <div className="donut">
+        <Chart type="pie" width={380} height={380} series={[44, 55, 41, 17, 15]}  options={{labels:['a','b','c','d','e']}}></Chart>
+      </div>
         <Table responsive="lg">
                     <thead>
                         <tr>
@@ -36,6 +58,7 @@ const Complaints = () => {
                             <th>Complaint</th>
                             <th>Image</th>
                             <th>Status</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,8 +67,11 @@ const Complaints = () => {
                         <td>01/04/2022</td>
                         <td>{msg.data.idnumber}</td>
                         <td>{msg.data.complaint}</td>
-                        <td><Button variant="info">View Image</Button></td>
+                        <td><Button variant="info" data-tip="images not available for now">View Image</Button></td>
                         <td className="text-success font-weight-bold">{msg.data.status}</td>
+                        <td>
+                         {msg.data.status==='forwarded to mess' && <Button variant='success' onClick={e=>handlesolve(msg.id)}>Solve</Button> }
+                        </td>
                         </tr>
                        ))}
                     </tbody>
