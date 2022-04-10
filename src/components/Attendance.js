@@ -1,38 +1,61 @@
-import React, { useRef } from 'react'
+import React , { useState ,useEffect,useRef } from 'react'
 import { Container , Button, Form ,Row,Col} from 'react-bootstrap'
 import Nav from './Nav'
 import '../assets/css/index.css';
 import { Link } from 'react-router-dom';
+
 import firebase from 'firebase';
-import { useEffect , useState } from 'react';
 
 const Attendance = () => {
-    const dat= useRef('');
-  const [count1 , setCount1] = useState('');
-  const [count2 , setCount2] = useState('');
-  const [count3 , setCount3] = useState('');
+    const [count1 , setCount1] = useState('');
+    const [count2 , setCount2] = useState('');
+    const [count3 , setCount3] = useState('');
+    const [todays , setToday] = useState('');
+    const datee = useRef();
+    useEffect(() => {
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+        today = mm + '-' + dd + '-' + yyyy;
+        setToday(today);
+        const Dinner  = firebase.database().ref(today+' Dinner');
+        const Lunch  = firebase.database().ref(today+' Lunch');
+        const Breakfast  = firebase.database().ref(today+' Breakfast');
 
-  useEffect(() => {
-        const Breakfast = firebase.database().ref("31-03-2022 Breakfast");
-        const Lunch = firebase.database().ref("31-03-2022 Lunch");
-        const Dinner = firebase.database().ref("31-03-2022 Dinner");
+      Breakfast.on('value', (snapshot) => {
+        setCount1(snapshot.numChildren());
+      })
 
-        Breakfast.on('value', (snapshot) => {
-          setCount1(snapshot.numChildren());
-        })
+      Lunch.on('value', (snapshot) => {
+        setCount2(snapshot.numChildren());
+      })
 
-        Lunch.on('value', (snapshot) => {
-            setCount2(snapshot.numChildren());
-          })
+      Dinner.on('value', (snapshot) => {
+        setCount3(snapshot.numChildren());
+      })
+    }, [])
+    
+    function handledate (){
+        var tod = datee.current.value;
+        var today = tod.substring(8,10)+'-'+tod.substring(5,7)+'-'+tod.substring(0,4);
+        setToday(today);
+        const Dinner  = firebase.database().ref(today+' Dinner');
+        const Lunch  = firebase.database().ref(today+' Lunch');
+        const Breakfast  = firebase.database().ref(today+' Breakfast');
 
-          Dinner.on('value', (snapshot) => {
-            setCount3(snapshot.numChildren());
-          })
-  }, [])
-  
+      Breakfast.on('value', (snapshot) => {
+        setCount1(snapshot.numChildren());
+      })
 
+      Lunch.on('value', (snapshot) => {
+        setCount2(snapshot.numChildren());
+      })
 
- 
+      Dinner.on('value', (snapshot) => {
+        setCount3(snapshot.numChildren());
+      })
+    }
 
   return (
     <div>
@@ -40,12 +63,12 @@ const Attendance = () => {
         <Container>
             <div className='align'>
                 <Button variant="info" className="py-3 my-3">Calendar</Button>
-                <h5>Date : 02/04/2022</h5>
+                <h5>Date : {todays}</h5>
                 <p>DH- 07 total count :<span className='decor'>920</span></p>
                 <Form>
                     <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
-                        <Col sm="40">
-                        <Form.Control type="date" name="expiredDate" ref={dat} placeholder="Password" />
+                        <Col sm="10">
+                        <Form.Control type="date" placeholder="Password" ref={datee}  onChange={handledate}/>
                         </Col>
                     </Form.Group>
                 </Form>
@@ -54,21 +77,21 @@ const Attendance = () => {
                         <div className='innerflex'>
                             <h5>Breakfast</h5>
                             <p>Attended : { count1 }</p>
-                            <Link to='/attendancedetails' ><Button variant='info' className="my-3 py-3">View Details</Button></Link>
+                            <Button variant='info' className="my-3 py-3">View Details</Button>
                         </div>
                     </div>
                     <div className='innerbox'>
                         <div className='innerflex'>
                             <h5>Lunch</h5>
                             <p>Attended : { count2 }</p>
-                            <Link to='/attendancedetails' ><Button variant='info' className="my-3 py-3">View Details</Button></Link>
+                            <Link to='/attendancedetails'><Button variant='info' className="my-3 py-3">View Details</Button></Link>
                         </div>
                     </div>
                     <div className='innerbox'>
                         <div className='innerflex'>
                             <h5>Dinner</h5>
                             <p>Attended : { count3 }</p>
-                            <Link to='/attendancedetails'><Button variant='info' className="my-3 py-3">View Details</Button></Link>
+                            <Button variant='info' className="my-3 py-3">View Details</Button>
                         </div>
                     </div>
                 </div>
