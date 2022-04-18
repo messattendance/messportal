@@ -19,7 +19,7 @@ function App() {
           <Route path='/updatemenu' element={<Updatemenu/>}/>
           <Route path='/leavemeal' element={<Leavemeal/>}/>
           <Route path='/attendance' element={<Attendance/>}/>
-          <Route path='/attendancedetails' element={<AttendanceDetails/>}/>
+          <Route path='/attendancedetails/:date/:type' element={<AttendanceDetails/>}/>
           <Route path='/feedback' element={<Feedback/>}/>
           <Route path='/complaints' element={<Complaints/>}/>
           

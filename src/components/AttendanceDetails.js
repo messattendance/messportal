@@ -1,27 +1,26 @@
-import React   from 'react'
+import React ,{ useState , useEffect } from 'react'
 import { Container ,Button , Table} from 'react-bootstrap'
 import '../assets/css/index.css'
-import Nav from './Nav';
 import firebase from 'firebase'
-import { useEffect, useState } from 'react'
+import Nav from './Nav'
+import { useParams } from 'react-router-dom'
+//import { database  } from '../firebase'
 
-const AttendanceDetails = () => {
+const AttendanceDetails = (props) => {
+    const [count , setCount] = useState('');
+    const params=useParams();
+    const [obj, setObject] = useState('');
 
-        const [count , setCount] = useState('');
-        const [obj, setObject] = useState('');
-        useEffect(() => {
-          const todoRef = firebase.database().ref("31-03-2022 Lunch");
-          todoRef.on('value', (snapshot) => {
-              if(snapshot.val() != null)
-              setCount(snapshot.numChildren());
-              setObject({
-                  ...snapshot.val()
-              })
-              
-            //console.log(snapshot.val());
-          });
-          
-        },[])
+    useEffect(() => {
+        const Lunch = firebase.database().ref(params.date+" "+params.type);
+        Lunch.on('value' , (snapshot)=>{
+            setCount(snapshot.numChildren());
+            setObject({
+              ...snapshot.val()
+          })
+        })
+    }, [params])
+    
   return (
     <div>
         <Nav/>
@@ -31,7 +30,7 @@ const AttendanceDetails = () => {
                 <div className="attendance">
                     <h5 className='px-3'>Total Count : <span className='decor'>{count}</span></h5>
                     <h5  className='px-3 text-danger'>Breakfast</h5>
-                    <h5 className='px-3'>Date : 02/04/2022</h5>
+                    <h5 className='px-3'>Date : {params.date+' '+params.type}</h5>
                 </div>
                 <Table responsive="lg">
                     <thead>
@@ -42,24 +41,13 @@ const AttendanceDetails = () => {
                     </thead>
                     <tbody>
                         {Object.keys(obj).map(id =>{
-                            return<tr>
+                            return<tr key={id}>
                                 <td>{obj[id].name}</td>
                                 <td>{obj[id].exit_time}</td>
                             </tr>
                         })}
                         
-                        {/* <tr>
-                        <td>s160001</td>
-                        <td>8:22 Am</td>
-                        </tr>
-                        <tr>
-                        <td>s160002</td>
-                        <td>8:30 Am</td>
-                        </tr>
-                        <tr>
-                        <td>s160003</td>
-                        <td>8:45 Am</td>
-                        </tr> */}
+                     
                     </tbody>
                     </Table>
             </div>

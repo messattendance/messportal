@@ -5,24 +5,34 @@ import '../assets/css/index.css';
 import { Link } from 'react-router-dom';
 
 import firebase from 'firebase';
+//import { database } from '../firebase';
+
 
 const Attendance = () => {
     const [count1 , setCount1] = useState('');
     const [count2 , setCount2] = useState('');
     const [count3 , setCount3] = useState('');
     const [todays , setToday] = useState('');
+
+  const [breakfast,setBreakfast] = useState('');
+  const [lunch , setLunch] = useState('');
+  const [dinner , setDinner] = useState('');
+
     const datee = useRef();
     useEffect(() => {
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
         var yyyy = today.getFullYear();
-        today = mm + '-' + dd + '-' + yyyy;
+        today = dd + '-' + mm + '-' + yyyy;
         setToday(today);
         const Dinner  = firebase.database().ref(today+' Dinner');
         const Lunch  = firebase.database().ref(today+' Lunch');
         const Breakfast  = firebase.database().ref(today+' Breakfast');
-
+        setDinner('/attendancedetails/'+today+'/Dinner');
+        setLunch('/attendancedetails/'+today+'/Lunch');
+        setBreakfast('/attendancedetails/'+today+'/Breakfast');
+      console.log(today)
       Breakfast.on('value', (snapshot) => {
         setCount1(snapshot.numChildren());
       })
@@ -43,7 +53,10 @@ const Attendance = () => {
         const Dinner  = firebase.database().ref(today+' Dinner');
         const Lunch  = firebase.database().ref(today+' Lunch');
         const Breakfast  = firebase.database().ref(today+' Breakfast');
-
+        setDinner('/attendancedetails/'+today+'/Dinner');
+        setLunch('/attendancedetails/'+today+'/Lunch');
+        setBreakfast('/attendancedetails/'+today+'/Breakfast');
+console.log(today)
       Breakfast.on('value', (snapshot) => {
         setCount1(snapshot.numChildren());
       })
@@ -77,21 +90,21 @@ const Attendance = () => {
                         <div className='innerflex'>
                             <h5>Breakfast</h5>
                             <p>Attended : { count1 }</p>
-                            <Button variant='info' className="my-3 py-3">View Details</Button>
+                            <Link to={breakfast}><Button variant='info' className="my-3 py-3">View Details</Button></Link>
                         </div>
                     </div>
                     <div className='innerbox'>
                         <div className='innerflex'>
                             <h5>Lunch</h5>
                             <p>Attended : { count2 }</p>
-                            <Link to='/attendancedetails'><Button variant='info' className="my-3 py-3">View Details</Button></Link>
+                            <Link to={lunch}><Button variant='info' className="my-3 py-3">View Details</Button></Link>
                         </div>
                     </div>
                     <div className='innerbox'>
                         <div className='innerflex'>
                             <h5>Dinner</h5>
                             <p>Attended : { count3 }</p>
-                            <Button variant='info' className="my-3 py-3">View Details</Button>
+                            <Link to={dinner}><Button variant='info' className="my-3 py-3">View Details</Button></Link>
                         </div>
                     </div>
                 </div>

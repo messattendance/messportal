@@ -3,7 +3,7 @@ import Nav from './Nav'
 import { Button, Container,Table } from 'react-bootstrap'
 import ReactTooltip from 'react-tooltip';
 import firebase from 'firebase'
-import Chart from 'react-apexcharts'
+//import Chart from 'react-apexcharts'
 
 
 
@@ -48,7 +48,7 @@ const Complaints = () => {
         </div>
         <div>
         <div className="donut">
-        <Chart type="pie" width={380} height={380} series={[44, 55, 41, 17, 15]}  options={{labels:['a','b','c','d','e']}}></Chart>
+        {/*<Chart type="pie" width={380} height={380} series={[44, 55, 41, 17, 15]}  options={{labels:['a','b','c','d','e']}}></Chart> */}
       </div>
         <Table responsive="lg">
                     <thead>

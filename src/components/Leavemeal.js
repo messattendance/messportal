@@ -1,8 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container ,Button , Table} from 'react-bootstrap'
 import '../assets/css/index.css'
 import Nav from './Nav'
+import firebase from 'firebase'
 const Leavemeal = () => {
+
+    const[count, setCount]=useState();
+    const [messages, setMessages] = useState('');
+    useEffect(() => {
+        firebase.firestore().collection('leavemeal').get().then(snap => {
+          setCount(snap.size) // will return the collection size
+        });
+
+        firebase.firestore()
+      .collection('leavemeal')
+      .onSnapshot((snapshot) => {
+        setMessages(
+          snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }))
+        );
+      });
+      }, [count])
+
   return (
     <div>
         <Nav/>
@@ -10,7 +28,7 @@ const Leavemeal = () => {
             <div className='align'>
                 <Button variant='info' className='py-3 my-3'>Leave The Meal</Button>
                 <h5>Date : 02/04/2022</h5>
-                <p>Total number of students who are willing to leave the  meal  :   <span className='decor'>58</span></p>
+                <p>Total number of students who are willing to leave the  meal  :   <span className='decor'>{count}</span></p>
                 <Table responsive="lg">
                     <thead>
                         <tr>
@@ -19,18 +37,12 @@ const Leavemeal = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                        <td>s160001</td>
-                        <td>Parent Visit</td>
+                    {messages && messages.map((msg =>
+                    <tr>
+                        <td>{msg.data.idnumber}</td>
+                        <td>Not Mentioned</td>
                         </tr>
-                        <tr>
-                        <td>s160002</td>
-                        <td>Food Court</td>
-                        </tr>
-                        <tr>
-                        <td>s160003</td>
-                        <td>Not Intrested In Menu</td>
-                        </tr>
+                    ))}
                     </tbody>
                     </Table>
             </div>
