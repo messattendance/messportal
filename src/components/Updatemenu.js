@@ -29,7 +29,7 @@ const Updatemenu = () => {
     }
   return (
     <div>
-        <Nav/>
+       
         <Container>
             <div className='menubtn'>   
                 <Button variant="info" className="py-3 my-3" >Update Menu</Button>

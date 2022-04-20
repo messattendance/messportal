@@ -23,7 +23,7 @@ const Leavemeal = () => {
 
   return (
     <div>
-        <Nav/>
+        {/* <Nav/> */}
         <Container>
             <div className='align'>
                 <Button variant='info' className='py-3 my-3'>Leave The Meal</Button>

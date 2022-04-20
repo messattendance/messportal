@@ -1,5 +1,6 @@
 import { BrowserRouter as Router , Routes , Route} from 'react-router-dom'
 import Dashboard from './components/Dashboard';
+import Home from './components/Home';
 import Updatemenu from './components/Updatemenu';
 import Leavemeal from './components/Leavemeal';
 import Attendance from './components/Attendance';
@@ -7,6 +8,8 @@ import AttendanceDetails from './components/AttendanceDetails';
 import Feedback from './components/Feedback';
 import Complaints from './components/Complaints';
 import Chart from './components/Chart';
+import Signin from './authentication/Signin';
+import Signup from './authentication/Signup';
 
 
 function App() {
@@ -15,7 +18,7 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path='/' exact element={<Dashboard/>} />
+          <Route path='/home' element={<Home/>}/>
           <Route path='/updatemenu' element={<Updatemenu/>}/>
           <Route path='/leavemeal' element={<Leavemeal/>}/>
           <Route path='/attendance' element={<Attendance/>}/>

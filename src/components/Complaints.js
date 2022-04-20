@@ -38,7 +38,7 @@ const Complaints = () => {
 
   return (
     <div>
-        <Nav/>
+        {/* <Nav/> */}
         <ReactTooltip />
         <Container>
         <div className='align'>
