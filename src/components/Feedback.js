@@ -1,6 +1,6 @@
 import React , {useEffect,useState} from 'react'
 import Nav from './Nav'
-import {Button, Container,Table} from 'react-bootstrap'
+import {Button, Container,Row,Table} from 'react-bootstrap'
 import firebase from 'firebase';
 import {Chart as ChartJs, Tooltip, Title, ArcElement, Legend} from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
@@ -260,17 +260,19 @@ labels: [
      
         <Container>
         <div className="align">
-          <Button variant='info' className='py-3 my-3'>Feedback</Button>
+        <h4 className='font_m'>Feedback</h4>
             <div className="feedback">
-              <h5 className='px-3'>Satisfactory</h5>
-              <h5 className='px-3'>Below Satisfactory</h5>
-              <h5 className='px-3'>Good</h5>
+              <h6 className='px-3 font_m opacity-50'>Satisfactory</h6>
+              <h6 className='px-3 font_m opacity-50'>Below Satisfactory</h6>
+              <h6 className='px-3 font_m opacity-50'>Good</h6>
             </div>
-          <h5>Total feedback Count :  <span className='decor'>{count}</span></h5>
+          <h5>Total feedback Count :  <span className='decor bg_color_orange'>{count}</span></h5>
         </div>
 
         <div className='attendance'>
-          <div style={{width : "30%" , height :"30%"}}>
+          <Row>
+           
+            <div style={{width : "30%" , height :"30%"}}>
             <Doughnut data={data}/>
           </div>
 
@@ -284,6 +286,8 @@ labels: [
           <div style={{width : "30%" , height :"30%"}}>
             <Doughnut data={data3}/>
           </div>
+          </Row>
+          
           <div>
 
           </div>
@@ -294,7 +298,7 @@ labels: [
         <Button variant="info" className="my-3">View More</Button>
         <Button variant="info" className="my-3">View More</Button>
   </div>*/}
-  <Table responsive="lg">
+  <Table className='table-hover' responsive="lg">
                     <thead>
                         <tr>
                             <th>ID number</th>

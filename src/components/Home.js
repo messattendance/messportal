@@ -8,10 +8,11 @@ import Feedback from './Feedback'
 import Complaints from './Complaints'
 import Leavemeal from './Leavemeal'
 import Navv from './Nav'
+import'../assets/css/assets.css'
 const Home = () => {
     
   return (
-  <div>
+  <div className='contact-background-image'>
        
        <Navv/>
        <Tab.Container id="" defaultActiveKey="first" className="mt-20" >
@@ -20,30 +21,30 @@ const Home = () => {
         <Nav variant="pills" className="flex-column">
         <Row xs lg={6} className='justify-content-center'>
           <Nav.Item >
-            <div className='bg-light text-center' >
+          <div className='bg-light text-center font_m rounded' >
               <Nav.Link eventKey="first">Attendance</Nav.Link>
-            </div>            
+           </div>            
           </Nav.Item >
 
           <Nav.Item>
-          <div className='bg-light text-center' >
+          <div className='bg-light text-center font_m rounded' >
           <Nav.Link eventKey="second">Update Menu</Nav.Link>
           </div>
             
           </Nav.Item>
           <Nav.Item  >
 
-          <div className='bg-light text-center' >
+          <div className='bg-light text-center font_m rounded' >
           <Nav.Link eventKey="third">Feedback</Nav.Link>
           </div>
           </Nav.Item>
           <Nav.Item >
-          <div className='bg-light text-center' >
+          <div className='bg-light text-center font_m rounded' >
           <Nav.Link eventKey="fourth">Complaints</Nav.Link>
           </div>
           </Nav.Item>
           <Nav.Item >
-          <div className='bg-light text-center' >
+          <div className='bg-light text-center font_m rounded' >
           <Nav.Link eventKey="fifth">Leavemeal</Nav.Link>
           </div>
           </Nav.Item>
@@ -56,16 +57,16 @@ const Home = () => {
              <div className='container bg-light'><Attendance/></div>
           </Tab.Pane>
           <Tab.Pane eventKey="second">
-           <Updatemenu/>
+          <div className='container bg-light'><Updatemenu/></div>
           </Tab.Pane>
           <Tab.Pane eventKey="third">
-           <Feedback/>
+          <div className='container bg-light'><Feedback/></div>
           </Tab.Pane>
           <Tab.Pane eventKey="fourth">
-           <Complaints/>
+          <div className='container bg-light'><Complaints/></div>
           </Tab.Pane>
           <Tab.Pane eventKey="fifth">
-           <Leavemeal/>
+          <div className='container bg-light'><Leavemeal/></div>
           </Tab.Pane>
         </Tab.Content>
       </Row>

@@ -32,48 +32,51 @@ const Updatemenu = () => {
        
         <Container>
             <div className='menubtn'>   
-                <Button variant="info" className="py-3 my-3" >Update Menu</Button>
+            <h4 className='font_m my-2'>Update Menu</h4>
                 <h5>Date : 02/04/2022</h5>
-                <div className="menu">
-                <Form>
+                <div className="row menu ">
+                    <Col>
+                    <Form>
                     <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-                        <Form.Label column sm="2">
-                        Breakfast
+                        <Form.Label column sm="4" className='font_m opacity-75'>
+                            Breakfast
                         </Form.Label>
-                        <Col sm="10">
+                        <Col sm="15">
                         <Form.Control type = "text"  ref={breakfast}/>
                         </Col>
                     </Form.Group>
 
                     <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
-                        <Form.Label column sm="2">
+                        <Form.Label column sm="4" className='font_m opacity-75'>
                         Lunch
                         </Form.Label>
-                        <Col sm="10">
+                        <Col sm="15">
                         <Form.Control type="text"  ref={lunch} />
                         </Col>
                     </Form.Group>
 
                     <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-                        <Form.Label column sm="2">
+                        <Form.Label column sm="4" className='font_m opacity-75'>
                         Snacks
                         </Form.Label>
-                        <Col sm="10">
+                        <Col sm="15">
                         <Form.Control type = "text"  ref={snacks} />
                         </Col>
                     </Form.Group>
 
                     <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-                        <Form.Label column sm="2">
+                        <Form.Label column sm="4" className='font_m opacity-75'>
                         Dinner
                         </Form.Label>
-                        <Col sm="10">
+                        <Col sm="15">
                         <Form.Control type = "text" ref={dinner} />
                         </Col>
                     </Form.Group>
                     </Form>
+                    </Col>
+               
                 </div>
-                <Button variant="info" className="my-3" onClick={updatemenu}>Update Menu</Button>
+                <Button variant="none" className="my-3 bg_color_dark text-white button font_m"  onClick={updatemenu}>Update Menu</Button>
             </div>
         </Container>
     </div>

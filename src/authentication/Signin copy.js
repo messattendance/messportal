@@ -1,11 +1,10 @@
 import React , { useRef ,useState , useEffect} from 'react'
 import { useAuth } from './AuthProvider'
+import { Form , Button ,Alert } from 'react-bootstrap'
 import { Link  } from 'react-router-dom'
 import '../assets/css/auth.css'
 import AuthStyle from './AuthStyle'
 import Nav from '../components/Nav'
-import { Form , Button } from 'react-bootstrap'
-import'../assets/css/assets.css'
 
 
  const Signin = () => {
@@ -39,31 +38,27 @@ import'../assets/css/assets.css'
 
     return (
         <div>
-            <div className="contact-background-image">
-                <div className='navbar'>
-                    <h6><Link className='link font_m font_44' to="/">Mess Attendance And Monitoring System</Link></h6>
-                    
-                </div>
-                <div className="head">
-                <h2 className='font_sb text-light  p-3'>Mess Administration</h2>
-                </div>
-            
-                <div className="container col-sm-3 bg-light rounded mt-5 py-5">
+        {/* <center>
+            {warning && <Alert variant="danger">{(warning.code).slice(5,)}</Alert>}
+            {error && <Alert variant="danger">{error}</Alert>}<br/>
+        </center> */}
+            {/* <font className="title">MHCS AND CG</font> */}
+            <div className="mainclass">
+                <AuthStyle />
+                <div className="sub2">
                         <center>  
                                 <Form autoComplete="off">
-                                    <h5 className="font_m pt-5" >Signin</h5>
-                                    <input type="email"  className="form-control my-5" placeholder="Email" />
-                                    <input type="password"  className="form-control my-5" placeholder="Password"/>
-                                    {/* <Link to="/forgot" className="alink">Forgot Password?</Link><br/> */}
-                                    <Button variant='none' className="button bg_color_dark w-50 text-white font_m my-3" >Login</Button>
+                                    <font className="alink">Student Login   |   Counsellor Login</font><br/>
+                                    <input type="email"  className="form-control" placeholder="email" />
+                                    <input type="password"       className="form-control" placeholder="password"/>
+                                    <Link to="/forgot" className="alink">Forgot Password?</Link><br/>
+                                    <Button className="btn btn-success" >Login</Button>
                                 </Form>
-                                {/* <Link to="/signup" className="">New Member? Signup</Link><br/> */}
+                                <Link to="/signup" className="alink">New Member? Signup</Link><br/>
                         </center>
                 </div>
-               
             </div>
-       
-        
+            <center><font className="copyrights">&copy; We4 Solutions</font></center>
         </div>
     )
 }

@@ -32,7 +32,7 @@ const AttendanceDetails = (props) => {
                     <h5  className='px-3 text-danger'>Breakfast</h5>
                     <h5 className='px-3'>Date : {params.date+' '+params.type}</h5>
                 </div>
-                <Table responsive="lg">
+                <Table className='table-hover' responsive="lg">
                     <thead>
                         <tr>
                             <th>Attendees</th>
