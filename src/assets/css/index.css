@@ -38,6 +38,11 @@
     width: 500px;
 }
 
+.bolder
+{
+    font-weight: bold;
+}
+
 .spanbtn{
     background-color: #301551;;
     padding:10px 34px;
