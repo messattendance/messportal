@@ -4,7 +4,7 @@ import { Button, Container,Table } from 'react-bootstrap'
 import ReactTooltip from 'react-tooltip';
 import firebase from 'firebase'
 //import Chart from 'react-apexcharts'
-
+import '../assets/css/index.css'
 
 
 
@@ -45,7 +45,7 @@ const Complaints = () => {
         <div className='align'>
         <h4 className='font_m'>Complaints</h4>
         <div className='attendance'>
-            <h5>Total Complaints : <span className='decor'>{count}</span></h5>
+            <h5>Total Complaints : <span className='spanbtn'>{count}</span></h5>
         </div>
         <div>
         <div className="donut">

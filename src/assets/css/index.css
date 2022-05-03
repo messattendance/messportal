@@ -38,9 +38,23 @@
     width: 500px;
 }
 
+.spanbtn{
+    background-color: #301551;;
+    padding:10px 34px;
+    border-radius: 10px;
+    font-size:18px;
+    text-decoration: none;
+    border:2px solid;
+    width: 50%;
+    color: white;
+    
+    
+ }
+
+
 .decor{
     background-color: #CAB8FF;
-    padding:5px 15px;
+    padding:10px 15px;
     border-radius: 5px;
 }
 
