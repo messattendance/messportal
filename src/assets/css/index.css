@@ -9,7 +9,17 @@
     width: 100px;
     background-color: #ffffff;
 }
-
+.heading
+{
+    background-color: "DodgerBlue";
+    font-weight: "bold";
+    font-size: "20px";
+    color: "white";
+}
+.xyz
+{
+    cursor: pointer;
+}
 .align , .menubtn {
     margin-top: 40px;
     display: flex;

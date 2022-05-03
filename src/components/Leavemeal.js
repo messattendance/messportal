@@ -22,18 +22,18 @@ const Leavemeal = () => {
       }, [count])
 
   return (
-    <div>
+    <div style={{backgroundColor:"DodgerBlue" }}>
         {/* <Nav/> */}
-        <Container>
-            <div className='align'>
-                <h4  className='font_m my-2'>Leave The Meal</h4>
-                <h5>Date : 02/04/2022</h5>
+        <Container >
+            <div className='align' >
+                <h4  className='font_m my-2' class="heading">Leave The Meal</h4>
+                <h5 class="heading">Date : 02/04/2022</h5>
                 <p>Total number of students who are willing to leave the  meal  :   <span className='decor'>{count}</span></p>
                 <Table responsive="lg">
-                    <thead>
+                    <thead>gre
                         <tr>
-                            <th>ID number</th>
-                            <th>Reason</th>
+                            <th >ID number</th>
+                            <th >Reason</th>
                         </tr>
                     </thead>
                     <tbody>
