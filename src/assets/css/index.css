@@ -9,7 +9,10 @@
     width: 100px;
     background-color: #ffffff;
 }
-
+.xyz
+{
+    cursor: pointer;
+}
 .align , .menubtn {
     margin-top: 40px;
     display: flex;

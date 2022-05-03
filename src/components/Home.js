@@ -20,30 +20,30 @@ const Home = () => {
         <Col>
         <Nav variant="pills" className="flex-column">
         <Row xs lg={6} className='justify-content-center'>
-          <Nav.Item >
+          <Nav.Item class='xyz'>
           <div className='bg-light text-center font_m rounded' >
               <Nav.Link eventKey="first">Attendance</Nav.Link>
            </div>            
           </Nav.Item >
 
-          <Nav.Item>
+          <Nav.Item class='xyz'>
           <div className='bg-light text-center font_m rounded' >
           <Nav.Link eventKey="second">Update Menu</Nav.Link>
           </div>
             
           </Nav.Item>
-          <Nav.Item  >
+          <Nav.Item class='xyz' >
 
           <div className='bg-light text-center font_m rounded' >
           <Nav.Link eventKey="third">Feedback</Nav.Link>
           </div>
-          </Nav.Item>
-          <Nav.Item >
+          </Nav.Item >
+          <Nav.Item class='xyz' >
           <div className='bg-light text-center font_m rounded' >
           <Nav.Link eventKey="fourth">Complaints</Nav.Link>
           </div>
           </Nav.Item>
-          <Nav.Item >
+          <Nav.Item class='xyz'>
           <div className='bg-light text-center font_m rounded' >
           <Nav.Link eventKey="fifth">Leavemeal</Nav.Link>
           </div>
