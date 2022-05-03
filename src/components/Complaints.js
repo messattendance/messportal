@@ -45,7 +45,7 @@ const Complaints = () => {
         <div className='align'>
         <h4 className='font_m'>Complaints</h4>
         <div className='attendance'>
-            <h5>Total Complaints : <span className='spanbtn'>{count}</span></h5>
+            <h5 className="bolder">Total Complaints : <span className='spanbtn'>{count}</span></h5>
         </div>
         <div>
         <div className="donut">
