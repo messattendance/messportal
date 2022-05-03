@@ -42,7 +42,7 @@ const Complaints = () => {
         <ReactTooltip />
         <Container>
         <div className='align'>
-        <Button variant='info' className='py-3 my-3'>Complaints</Button>
+        <h4 className='font_m'>Complaints</h4>
         <div className='attendance'>
             <h5>Total Complaints : <span className='decor'>{count}</span></h5>
         </div>

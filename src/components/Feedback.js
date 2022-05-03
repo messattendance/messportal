@@ -270,7 +270,7 @@ labels: [
         </div>
 
         <div className='attendance'>
-          <Row>
+          
            
             <div style={{width : "30%" , height :"30%"}}>
             <Doughnut data={data}/>
@@ -286,7 +286,7 @@ labels: [
           <div style={{width : "30%" , height :"30%"}}>
             <Doughnut data={data3}/>
           </div>
-          </Row>
+          
           
           <div>
 

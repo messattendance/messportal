@@ -26,7 +26,7 @@ const Leavemeal = () => {
         {/* <Nav/> */}
         <Container>
             <div className='align'>
-                <Button variant='info' className='py-3 my-3'>Leave The Meal</Button>
+                <h4  className='font_m my-2'>Leave The Meal</h4>
                 <h5>Date : 02/04/2022</h5>
                 <p>Total number of students who are willing to leave the  meal  :   <span className='decor'>{count}</span></p>
                 <Table responsive="lg">

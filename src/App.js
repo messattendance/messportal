@@ -8,8 +8,7 @@ import AttendanceDetails from './components/AttendanceDetails';
 import Feedback from './components/Feedback';
 import Complaints from './components/Complaints';
 import Chart from './components/Chart';
-import Signin from './authentication/Signin';
-import Signup from './authentication/Signup';
+import Signin from './components/Signin';
 
 
 function App() {
@@ -18,7 +17,7 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path='/signin' element={<Signin/>} />
+          <Route path='/login' element={<Signin/>} />
           <Route path='/' element={<Home/>}/>
           <Route path='/updatemenu' element={<Updatemenu/>}/>
           <Route path='/leavemeal' element={<Leavemeal/>}/>
